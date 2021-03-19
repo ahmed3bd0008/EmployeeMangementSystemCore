@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@{
+    if (ViewBag.ErrorTitle == null)
+    {
+
+        <h1>@ViewData["Title"]</h1>
+
+        <p>sorry canot found this url</p>
+    }
+    else
+    {
+
+        <h2>@ViewBag.ErrorTitle</h2>
+        <h3>@ViewBag.ErrorMessage</h3>
+    }
+}

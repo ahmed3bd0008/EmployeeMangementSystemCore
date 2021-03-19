@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ApplicationUser>;
+@{ 
+    ViewBag.Title = "user manger";
+}
+<div class="row">
+    <div class="col-12"></div>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-secondary">add user</a>
+</div>
+@foreach (var item in Model)
+{
+    <div class="card m-3">
+        <div class="card-header">
+            <h3 class="text-secondary"> @item.Id</h3>
+        </div>
+        <div class="card-body">
+            <h3>@item.UserName</h3>
+        </div>
+        <div class="card-footer">
+            
+            <form asp-action="DeleteUser" asp-controller="Administration" method="post" asp-route-Id="@item.Id">
+                <a class="btn btn-secondary" asp-controller="administration" asp-action="EditUser" asp-route-Id="@item.Id">edit user</a>
+                <button type="submit" class="btn-danger btn" onclick="return confirm('do you waant  ro delete thius user @item.Email')">Delete</button>
+                @*//confirm javascript*@
+               <button type="submit" class="btn-danger btn"
+                        onclick="return confirm('do you waant  ro delete thius user @item.Email')">DeleteUser</button>
+                <a class="btn btn-primary" >no</a>
+            </form>
+        </div>
+    </div>
+}

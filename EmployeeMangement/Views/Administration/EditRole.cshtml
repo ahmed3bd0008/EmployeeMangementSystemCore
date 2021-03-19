@@ -1,0 +1,54 @@
+﻿@model EditRoleVIewModel
+@{ 
+    ViewBag.Title = "Edit Role";
+    ViewBag.RoleId = Model.ID;
+}
+<div class="row">
+    <div class="col-12">
+        <form method="post">
+            <div class="card mt-3">
+                <div class="text-danger" asp-validation-summary="All"></div>
+                <div class="card-header">
+                    <input asp-for="ID" disabled class="col-12 form-control" />
+                </div>
+                <div class="card-body">
+                    <input asp-for="RoleName" class="col-12 form-control" />
+                </div>
+                <div class="card-footer">
+                    @*must be buton type submit to call EditRole action HTTPpost*@
+                    <button type="submit" class="btn btn-secondary" >save</button>
+                    <a class="btn btn-danger">cancel</a>
+                </div>
+
+            </div>
+        </form>
+        <div class="card mt-3">
+           
+                <div class="card-header">
+
+                    <input asp-for="RoleName" disabled class="col-12 form-control" />
+                </div>
+                <div class="card-body">
+                    @if (Model.Users.Any())
+                    {
+                        @foreach (var item in Model.Users)
+                        {
+                            <h6>@item</h6>
+                        }
+                    }
+                    else
+                    {
+                        <h6>thier is no user</h6>
+                    }
+
+                </div>
+                <div class="card-footer">
+                    @*must be buton type submit to call EditRole action HTTPpost*@
+                    <a  asp-action="AddUserToRole" asp-controller="Administration" asp-route-RoleId="@Model.ID"; class="btn btn-secondary">edit user</a>
+                    <a class="btn btn-danger">cancel</a>
+
+                </div>
+         
+        </div>
+    </div>
+</div>

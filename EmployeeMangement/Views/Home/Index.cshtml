@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+
+   
+<div class="container-fluid">
+
+    @foreach (var item in Model)
+    {
+        var photopath = "~/Image/" + (item.PhotoPath ?? "3164c1f0-cba6-4c85-a34d-cadd1854e618_asdjpg.jpg");
+        <div class="card m-3 employee">
+            <div class="card-header">
+                <h3>@item.Name</h3>
+            </div>
+            @*  asp-append-version="true"  very impotant to show imge*@
+            <img class="card-img-top img-thumbnail" src=@photopath asp-append-version="true" />
+            <input type="hidden" id=@item.Id/>
+            <div class=" card-footer text-center">
+                <a class="btn btn-primary"  asp-controller="Home" asp-action="Edit"   asp-route-id="@item.Id">edit</a>
+                <a class="btn btn-primary"  asp-controller="Home" asp-action="Details"asp-route-id="@item.Id">view</a>
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Delete"   asp-route-id="@item.Id">Delete</a>
+            </div>
+
+        </div>
+    }
+</div>
+
+
+
+
+
+

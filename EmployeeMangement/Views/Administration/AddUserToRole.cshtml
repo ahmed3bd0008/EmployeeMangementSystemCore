@@ -1,0 +1,38 @@
+﻿@model List<AddUserToRoleViewModel>;
+@{ 
+    ViewBag.Title = "Add User To Role";
+   var  RoleId = Model.Select(e=>e.RoleId).First();
+}
+<div class="row">
+    <div class="col-12">
+        <form method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h4>users</h4>
+                </div>
+                <div class="card-body">
+
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <input type="hidden" asp-for=@Model[i].UserId />
+                        <input type="hidden" asp-for=@Model[i].UserName />
+                        
+                        <div class="form-check-input">
+                            <input asp-for="@Model[i].IsSelected" />
+                            <label asp-for=@Model[i].IsSelected>@Model[i].UserName</label>
+                        </div>
+                        <br />
+                    }
+                    
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-secondary" >Update user in role</button>
+                    <a class="btn btn-danger" asp-action="Editrole"
+                       asp-route-id=@RoleId>cancel</a>
+                </div>
+            </div>
+
+        </form>
+</div>
+</div>

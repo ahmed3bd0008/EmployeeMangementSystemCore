@@ -1,0 +1,74 @@
+﻿@model CreateEmployeViewModel
+@inject IEmployeeREpository employeerepository
+<div>
+    <form enctype="multipart/form-data" asp-controller="Home" asp-action="Create" method="post">
+        <div class="form-group row">
+            <label class="col-2 col-form-label" asp-for="Name"></label>
+            <div class="form-group col-10">
+                <input asp-for="Name" class="form-control input-lg" />
+                <span asp-validation-for="Name" class="text-danger m-3"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" asp-for="Email"></label>
+            <div class="form-group col-10">
+                <input asp-for="Email" class="form-control input-lg" />
+                <span asp-validation-for="Email" class="text-danger m-3"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" asp-for="Department"></label>
+            <div class="col-10">
+                <select class="custom-select form-control " asp-for="Department" asp-items="Html.GetEnumSelectList<Dep>()">
+                    <option>pleace select department</option>
+                </select>
+                <span asp-validation-for="Department" class="text-danger m-3"></span>
+                <br />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" asp-for="Photes"></label>
+            <div class="col-10 form-group">
+
+                <input asp-for="Photes" class="form-control custom-file-input" multiple/>
+                <label class="custom-file-label ">choose file</label>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-secondary" />
+        </div>
+        <div class="form-group">
+            <label>total employee is @employeerepository.GetAllEmployee().Count()</label>
+        </div>
+        <div asp-validation-summary="All" class="text-danger m-3"></div>
+    </form>
+</div>
+@section Scripts
+{
+//to display name of image in input 
+    <script>
+        /* this code show name of each image*/
+        //$(document).ready(function () {
+        //    $('.custom-file-input').on("change", function () {
+        //        var fileName = $(this).val().split("\\").pop();
+        //        $(this).next('.custom-file-label').html(fileName)
+        //    })
+        //})
+        /* this code show number of select img if more than 1*/
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var filelabel = $(this).next('.custom-file-label');
+                var file = $(this)[0].files;
+                if (file.length > 1) {
+                    filelabel.html(file.length + '  file is selected')
+                }
+                else if (file.length == 1)
+                {
+                    filelabel.html(file[0].name)
+                }
+               
+            })
+        })
+    </script>
+}
