@@ -40,6 +40,11 @@ namespace EmployeeMangement
                 option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequireUppercase = false;
             });
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("DeleteRole", police=>police.
+                                  RequireClaim("RemovRole"));
+            });
           //add identity
             ///add idenity 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores< AppDBContext > ();

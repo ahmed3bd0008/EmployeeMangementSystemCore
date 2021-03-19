@@ -5,11 +5,12 @@
 <div class="row ">
 
     <a class="btn btn-success my-2" asp-controller="Administration" asp-action="CreateRole">Create Role</a>
-    
+
     @if (Model.Any())
     {
         @foreach (var item in Model)
         {
+
             <div class="col-12 text-center">
                 <div class="card">
                     <div class="card-header">
@@ -18,10 +19,13 @@
                     <div class="card-body">
                         <h1> name : @item.Name </h1><div class="col-6">
                         </div>
-                        <div class="card-header">
-                            <a class="btn btn-success" asp-action="EditRole" asp-controller="Administration" asp-route-id=@item.Id>edit role </a>
-                            <a class="btn btn-danger" asp-action="DeleteRole" asp-controller="Administration" asp-route-RoleId=@item.Id>delete role </a>
-                        </div>
+                                                    <div class="card-header">
+                                                        <form asp-controller="Administration" asp-action="DeleteRole" method="post" asp-route-RoleId=@item.Id>
+                                                            <a class="btn btn-success" asp-action="EditRole" asp-controller="Administration" asp-route-id=@item.Id>edit role </a>
+
+                                                            <input class="btn btn-danger" type="submit" value="delete role" />
+                                                        </form>
+                                                    </div>
                     </div>
                 </div>
             </div>
