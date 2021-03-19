@@ -9,6 +9,7 @@ namespace EmployeeMangement.ViewModel
 {
     public class EditUserViewModel
     {
+
         public EditUserViewModel()
         {
             Claims = new List<string>();

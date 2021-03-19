@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tlY5Aju2xnGONLWnpbfjS0rMWMh6Yyhg2bTyl/zwJszvuy9TG3bx4iJ+syl4thmY9CNK+43Gb/rlFkDw0fOkWw==",
+  "dgSpecHash": "pCXED3QAWqw7XjFxlCvxlwcJMyMXMNqqrft7Ch6ZTMQtzY+nzVG28COtsZM/SE77mRr2oshDjQ+AX2GEk3BavQ==",
   "success": true,
-  "projectFilePath": "E:\\c#\\EmployeeMangement\\EmployeeMangement\\EmployeeMangement.csproj",
+  "projectFilePath": "E:\\c#\\New folder\\EmployeeMangement\\EmployeeMangement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sayed\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Sayed\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.3\\microsoft.aspnetcore.cryptography.internal.5.0.3.nupkg.sha512",
